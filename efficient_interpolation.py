@@ -19,6 +19,9 @@ def solve_for_coefficients_efficient(n, r):
          O1 = [(r[1][i] - r[-1][i])//2 for i in range(L)]
          
          r3 = [((r[2][i] - r0[i] - 4*r2[i] - 16*r4[i])//2 - O1[i])//3 for i in range(L)]
+         r1 = [O1[i] - r3[i] for i in range(L)]
+         
+         return (r0, r1, r2, r3, r4)
          
     if n == 4:
         r0 = r[0]
@@ -537,3 +540,5 @@ def solve_for_coefficients_efficient(n, r):
         r1 = [O1[i] - r3[i] - r5[i] - r7[i] - r9[i] - r11[i] - r13[i] - r15[i] - r17[i]  for i in range(L)]
         
         return (r0, r1, r2, r3, r4, r5, r6, r7, r8, r9, r10, r11, r12, r13, r14, r15, r16, r17, r18)
+
+    raise ValueError("We have not implement efficient Toom-{}".format(n))
