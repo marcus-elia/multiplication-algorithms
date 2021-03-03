@@ -1,4 +1,82 @@
 def solve_for_coefficients_natural(n, r):
+    if n == 2:
+        r0 = r[0]
+        r2 = r['infinity']
+        r1 = [r[1][i] - r0[i] - r2[i] for i in range(len(r0))]
+        return (r0, r1, r2)
+    
+    if n == 3:
+        r0 = r[0]
+
+        r4 = r['infinity']
+
+        r2 = [((r[1][i] + r[-1][i])
+         - 2*r0[i]
+         - 2*r4[i]
+        ) // 2 for i in range(len(r0))]
+
+        r3 = [(-2*r[1][i] 
+         + r[2][i]
+         + 1*r0[i]
+         - 2*r2[i]
+         - 14*r4[i]
+        ) // 6 for i in range(len(r0))]
+
+        r1 = [r[1][i]
+         - r0[i]
+        - r2[i]
+        - r3[i]
+        - r4[i]
+         for i in range(len(r0))]
+
+        return (r0, r1, r2, r3, r4)
+    
+    if n == 4:
+        r0 = r[0]
+
+        r6 = r['infinity']
+
+        r4 = [(-4*(r[1][i] + r[-1][i])
+         + (r[2][i] + r[-2][i])
+         + 6*r0[i]
+         - 120*r6[i]
+        ) // 24 for i in range(len(r0))]
+
+        r2 = [((r[1][i] + r[-1][i])
+         - 2*r0[i]
+         - 2*r4[i]
+         - 2*r6[i]
+        ) // 2 for i in range(len(r0))]
+
+        r5 = [(5*r[1][i] 
+         - 4*r[2][i]
+         + r[3][i]
+         - 2*r0[i]
+         + 2*r2[i]
+         - 22*r4[i]
+         - 478*r6[i]
+        ) // 120 for i in range(len(r0))]
+
+        r3 = [(-2*r[1][i] 
+         + r[2][i]
+         + 1*r0[i]
+         - 2*r2[i]
+         - 14*r4[i]
+         - 30*r5[i]
+         - 62*r6[i]
+        ) // 6 for i in range(len(r0))]
+
+        r1 = [r[1][i]
+         - r0[i]
+        - r2[i]
+        - r3[i]
+        - r4[i]
+        - r5[i]
+        - r6[i]
+         for i in range(len(r0))]
+
+        return (r0, r1, r2, r3, r4, r5, r6)
+
     if n == 5:
         r0 = r[0]
 

@@ -1,4 +1,56 @@
 def solve_for_coefficients_efficient(n, r):
+    if n == 2:
+        r0 = r[0]
+        r2 = r['infinity']
+        r1 = [r[1][i] - r0[i] - r2[i] for i in range(len(r0))]
+        return (r0, r1, r2)
+    
+    if n == 3:
+         r0 = r[0]
+         r4 = r['infinity']
+         
+         L = len(r0)
+
+         r2 = [((r[1][i] + r[-1][i])
+         - 2*r0[i]
+         - 2*r4[i]
+         ) // 2 for i in range(len(r0))]
+         
+         O1 = [(r[1][i] - r[-1][i])//2 for i in range(L)]
+         
+         r3 = [((r[2][i] - r0[i] - 4*r2[i] - 16*r4[i])//2 - O1[i])//3 for i in range(L)]
+         
+    if n == 4:
+        r0 = r[0]
+        r6 = r['infinity']
+
+        L = len(r0)
+
+        # the even temp variables
+
+        # start with E1, since it's not in a layer
+        E1 = [(r[1][i] + r[-1][i])//2 - r0[i] - r6[i] for i in range(L)]
+
+        # the remaining even variables
+        r4 = [(((r[2][i] + r[-2][i])//2 - r0[i] - 64*r6[i])//4 - E1[i])//3 for i in range(L)]
+        r2 = [E1[i] - r4[i]  for i in range(L)]
+
+        # the odd temp variables
+
+        # start with O1, since it's not in a layer
+        O1 = [(r[1][i] - r[-1][i])//2 for i in range(L)]
+
+        # layer 1
+        O2 = [((r[2][i] - r[-2][i])//4 - O1[i])//3 for i in range(L)]
+        O3 = [((r[3][i] - r0[i] - 9*r2[i] - 81*r4[i] - 729*r6[i] )//3 - O1[i])//8 for i in range(L)]
+
+        # the remaining odd variables
+        r5 = [(O3[i] - O2[i]) // 5 for i in range(L)]
+        r3 = [O2[i] - 5*r5[i]  for i in range(L)]
+        r1 = [O1[i] - r3[i] - r5[i]  for i in range(L)]
+
+        return (r0, r1, r2, r3, r4, r5, r6)
+    
     if n == 5:
         r0 = r[0]
         r8 = r['infinity']

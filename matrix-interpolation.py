@@ -1,4 +1,87 @@
 def solve_for_coefficients_matrix(n, r):
+    if n == 2:
+        r0 = r[0]
+        r2 = r['infinity']
+        r1 = [r[1][i] - r0[i] - r2[i] for i in range(len(r0))]
+        return (r0, r1, r2)
+    
+    if n == 3:
+        L = len(r[0])
+
+        r0 = r[0]
+        r1 = [(-2*r[-1][i]
+        - 3*r[0][i]
+        + 6*r[1][i]
+        - r[2][i]
+        + 12*r['infinity'][i]
+        ) // 6 for i in range(L)]
+
+        r2 = [(r[-1][i]
+        - 2*r[0][i]
+        + r[1][i]
+        - 2*r['infinity'][i]
+        ) // 2 for i in range(L)]
+
+        r3 = [(-r[-1][i]
+        + 3*r[0][i]
+        - 3*r[1][i]
+        + r[2][i]
+        - 12*r['infinity'][i]
+        ) // 6 for i in range(L)]
+
+        r4 = r['infinity']
+        return (r0, r1, r2, r3, r4)
+    
+    if n == 4:
+        L = len(r[0])
+
+        r0 = r[0]
+        r1 = [(6*r[-2][i]
+        - 60*r[-1][i]
+        - 40*r[0][i]
+        + 120*r[1][i]
+        - 30*r[2][i]
+        + 4*r[3][i]
+        - 1440*r['infinity'][i]
+        ) // 120 for i in range(L)]
+
+        r2 = [(-r[-2][i]
+        + 16*r[-1][i]
+        - 30*r[0][i]
+        + 16*r[1][i]
+        - r[2][i]
+        + 96*r['infinity'][i]
+        ) // 24 for i in range(L)]
+
+        r3 = [(-5*r[-2][i]
+        - 5*r[-1][i]
+        + 50*r[0][i]
+        - 70*r[1][i]
+        + 35*r[2][i]
+        - 5*r[3][i]
+        + 1800*r['infinity'][i]
+        ) // 120 for i in range(L)]
+
+        r4 = [(r[-2][i]
+        - 4*r[-1][i]
+        + 6*r[0][i]
+        - 4*r[1][i]
+        + r[2][i]
+        - 120*r['infinity'][i]
+        ) // 24 for i in range(L)]
+
+        r5 = [(-r[-2][i]
+        + 5*r[-1][i]
+        - 10*r[0][i]
+        + 10*r[1][i]
+        - 5*r[2][i]
+        + r[3][i]
+        - 360*r['infinity'][i]
+        ) // 120 for i in range(L)]
+
+        r6 = r['infinity']
+        return (r0, r1, r2, r3, r4, r5, r6)
+    
     if n == 5:  
         L = len(r[0])
 
