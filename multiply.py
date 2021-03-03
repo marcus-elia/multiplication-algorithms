@@ -9,7 +9,7 @@ def multiply(f, g, algorithm, interpolation):
         If algorithm_list is a list of valid ints, then we recursively 
         multiply until the end of the list, at which point we use 
         schoolbook.  Also, 1 means schoolbook.
-        interpolation is in ('Matrix', 'Natural', 'Efficient')"""
+        interpolation is in ("Matrix", "Natural", "Efficient")"""
        
     if len(f) != len(g):
         raise ValueError("Can only multiply polys of the same length")
@@ -40,8 +40,10 @@ def multiply(f, g, algorithm, interpolation):
         r_coefs = solve_for_coefficients_natural(n, r)
     elif interpolation == "Efficient":    
         r_coefs = solve_for_coefficients_efficient(n, r)
-    else:
+    elif interpolation == "Matrix":
         r_coefs = solve_for_coefficients_matrix(n, r)
+    else:
+        raise ValueError("Invalid interpolation method: " + str(interpolation)) 
     
     # recombination
     k = int(np.ceil(len(f) / n))

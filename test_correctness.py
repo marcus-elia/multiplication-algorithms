@@ -29,9 +29,9 @@ def test_algorithms(interpolation_method, min_degree=30, max_degree=150):
 
 def main(argv):
     test_schoolbook_multiply();
-    test_algorithms('natural', max_degree=80)
-    test_algorithms('efficient', max_degree=80)
-    test_algorithms('matrix', max_degree=80)
+    test_algorithms('Natural', max_degree=80)
+    test_algorithms('Efficient', max_degree=80)
+    test_algorithms('Matrix', max_degree=80)
     print("Done testing.")
 
 
