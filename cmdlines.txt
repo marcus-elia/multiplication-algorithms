@@ -1,0 +1,53 @@
+Start by running
+python plot_graphs.py -m 80 -M 120 -t 1000 -a "[[],[10]]" -i "Natural"
+just to see how long it takes, and get a sense of what the graphs look like.
+It took my computer about 10 minutes. Hopefully yours is faster.
+
+Every time this program runs, it saves a graph to a file. The graph is made
+in matplotlib.pyplot, so
+pip install matplotlib
+if you don't have it.  If you don't specify a filename with -f, then it will
+create a filename based on the other parameters. So if you run it twice with same
+algorithm list and interpolation method, it will overwrite the previous image.
+
+It will either fix one interpolation method and plot as many algorithms as you
+specify in the algorithm list, or it will fix one algorithm and plot the three
+interpolation methods. (If you don't specify -i, it will do the latter).
+
+The goal of every plot is to compare 2 or more graphs
+by either
+a) showing the threshold where one becomes faster than another, or
+b) showing that one is consistently faster than another.
+
+The example graph from above should show that Toom-10, with the natural formulas,
+becomes faster than SB (schoolbook) when the degree is about 108ish. It requires manually
+tweaking the min degree and max degree (-m and -M) to make the graph show this
+intersection point.
+I want the graphs to be as smooth as possible, so increasing -t to make more trials
+is better when it is feasible. But they will never be perfectly smooth, due to
+padding. (Example: Toom-10 requires the degree to be a multiple of 10. So if 
+it was multiplying polynomials of degree 81, it would add 0's to make it a degree
+90 polynomial, and thus it would take about as long as a degree 90 polynomial.
+Maybe even a little longer because putting the 0's there takes time).
+
+Here are some specific graphs I want. For all of them, num_trials is flexible.
+Get it as high as it can be, but as low as it needs to be. Probably going under
+200 usually makes too much noise, and going over 1000 doesn't help. But eh, maybe
+I'm wrong.  So feel free to experiment.
+
+python plot_graphs.py -m 10 -M 100 -t 500 -a "[[],[2]]" -i "Natural"
+python plot_graphs.py -m 10 -M 100 -t 500 -a "[[],[3]]" -i "Natural"
+python plot_graphs.py -m 10 -M 200 -t 500 -a "[[5]]"
+python plot_graphs.py -m 100 -M 300 -t 500 -a "[[5]]"
+python plot_graphs.py -m 100 -M 300 -t 500 -a "[[10]]"
+python plot_graphs.py -m 100 -M 200 -t 500 -a "[[],[2],[3]]" -i "Natural"
+python plot_graphs.py -m 50 -M 100 -t 500 -a "[[],[2],[3],[2,2],[4]]" -i "Natural"
+python plot_graphs.py -m 100 -M 300 -t 500 -a "[[],[2],[3],[2,2],[4]]" -i "Natural"
+python plot_graphs.py -m 800 -M 850 -t 500 -a "[[3,3,3],[9,3],[6,4],[4,3,2],[5,5],[7,4]]" -i "Natural"
+python plot_graphs.py -m 725 -M 775 -t 500 -a "[[4,3,2],[2,3,4]]" -i "Natural"
+python plot_graphs.py -m 725 -M 775 -t 500 -a "[[2,2,2,2,2],[4,3,2],[5,5]]" -i "Natural"
+python plot_graphs.py -m 800 -M 850 -t 500 -a "[[3,3,3]]"
+python plot_graphs.py -m 800 -M 850 -t 500 -a "[[7,4],[3,3,3]]" -i "Natural"
+python plot_graphs.py -m 800 -M 850 -t 500 -a "[[4,2,2,2],[3,3,3]]" -i "Natural"
+python plot_graphs.py -m 600 -M 700 -t 500 -a "[[10],[2,2,2,2]]" -i "Natural"
+python plot_graphs.py -m 500 -M 550 -t 500 -a "[[10]]"

@@ -93,11 +93,11 @@ def compare_decompositions(min_deg, max_deg, num_trials,
             x = _ // (num_trials//10)
             this_time = format_time(time.time()-progress_time)
             print("[" + "-"*x + " "*(10-x) + "]  " + str(this_time))
-    print("[----------]")
+    print("[----------]  " + str(format_time(time.time()-progress_time)))
                 
     # take the average
     algorithm_list_to_y_values = {algorithm_list :
-        [algorithm_to_time_sum[algorithm_list][degree]/num_trials for 
+        [algorithm_to_time_sum[algorithm_list][degree]/num_trials*CLOCKS_PER_SEC for 
          degree in degrees] for algorithm_list in algorithms}
     
     # now plot
@@ -153,11 +153,11 @@ def compare_interpolations(min_deg, max_deg, num_trials,
             x = _ // (num_trials//10)
             this_time = format_time(time.time()-progress_time)
             print("[" + "-"*x + " "*(10-x) + "]  " + str(this_time))
-    print("[----------]")
+    print("[----------]  " + str(format_time(time.time()-progress_time)))
                 
     # take the average
     interpolation_to_y_values = {interpolation :
-        [interpolation_to_time_sum[interpolation][degree]/num_trials for 
+        [interpolation_to_time_sum[interpolation][degree]/num_trials*CLOCKS_PER_SEC for 
          degree in degrees] for interpolation in interpolations}
     
     # now plot
