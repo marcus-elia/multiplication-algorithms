@@ -77,7 +77,7 @@ def compare_decompositions(min_deg, max_deg, num_trials,
     
     # this is the outer loop so all variables will be affected equally by
     # slow outliers
-    progress_time = time.time() # for the progress bar ;)
+    progress_time = time.time() # for the progress bar
     for _ in range(num_trials):
         for degree in degrees:
             f = [int(x) for x in np.random.randint(0, 2048, degree)]
@@ -88,7 +88,7 @@ def compare_decompositions(min_deg, max_deg, num_trials,
                 total_time = time.process_time() - start_time
                 algorithm_to_time_sum[algorithm_list][degree] += total_time
                 
-        # progress bar for meeeeee
+        # progress bar
         if _ % (num_trials//10) == 0:
             x = _ // (num_trials//10)
             this_time = format_time(time.time()-progress_time)
@@ -116,6 +116,7 @@ def compare_decompositions(min_deg, max_deg, num_trials,
         auto_filename = "decomp_plot"
         for algorithm_list in algorithms:
             auto_filename += "_" + list_to_string(algorithm_list)
+        auto_filename += "_m" + str(min_deg) + "_M" + str(max_deg) + "_t" + str(num_trials)
         auto_filename += ".jpg"
         plt.savefig(auto_filename, bbox_inches='tight')
     
@@ -137,7 +138,7 @@ def compare_interpolations(min_deg, max_deg, num_trials,
     
     # this is the outer loop so all variables will be affected equally by
     # slow outliers
-    progress_time = time.time() # for the progress bar ;)
+    progress_time = time.time() # for the progress bar
     for _ in range(num_trials):
         for degree in degrees:
             f = [int(x) for x in np.random.randint(0, 2048, degree)]
@@ -148,7 +149,7 @@ def compare_interpolations(min_deg, max_deg, num_trials,
                 total_time = time.process_time() - start_time
                 interpolation_to_time_sum[interpolation][degree] += total_time
                 
-        # progress bar for meeeeee
+        # progress bar
         if _ % (num_trials//10) == 0:
             x = _ // (num_trials//10)
             this_time = format_time(time.time()-progress_time)
@@ -175,6 +176,7 @@ def compare_interpolations(min_deg, max_deg, num_trials,
     else:
         auto_filename = "interp_plot"
         auto_filename += "_" + list_to_string(algorithm_list)
+        auto_filename += "_m" + str(min_deg) + "_M" + str(max_deg) + "_t" + str(num_trials)
         auto_filename += ".jpg"
         plt.savefig(auto_filename, bbox_inches='tight')
     
