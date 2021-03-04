@@ -106,10 +106,10 @@ def compare_decompositions(min_deg, max_deg, num_trials,
         plt.plot(degrees, algorithm_list_to_y_values[algorithm_list], 
                  lw=4, label=list_to_string(algorithm_list))
 
-    plt.xlabel("Degree", size=16)
-    plt.ylabel("Average CPU Time (seconds)", size=16)
-    plt.legend(fontsize=15)
-    plt.title("Running Time of Toom-Cook Decompositions", size=17)
+    plt.xlabel("Degree", size=19)
+    plt.ylabel("Average CPU Time (seconds)", size=19)
+    plt.legend(fontsize=18)
+    plt.title("Running Time of Toom-Cook Decompositions", size=20)
     if filename != "":
         plt.savefig(filename, bbox_inches='tight')
     else:
@@ -166,10 +166,10 @@ def compare_interpolations(min_deg, max_deg, num_trials,
         plt.plot(degrees, interpolation_to_y_values[interpolation], 
                  lw=4, label=interpolation)
 
-    plt.xlabel("Degree", size=16)
-    plt.ylabel("Average CPU Time (seconds)", size=16)
-    plt.legend(fontsize=15)
-    plt.title("Comparison of Interpolation Methods for Toom-" + list_to_string(algorithm_list), size=17)
+    plt.xlabel("Degree", size=19)
+    plt.ylabel("Average CPU Time (seconds)", size=19)
+    plt.legend(fontsize=18)
+    plt.title("Comparison of Interpolation Methods for Toom-" + list_to_string(algorithm_list), size=20)
     if filename != "":
         plt.savefig(filename, bbox_inches='tight')
     else:
