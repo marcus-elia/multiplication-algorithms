@@ -91,7 +91,7 @@ def compare_decompositions(min_deg, max_deg, num_trials,
     print("[----------]  " + str(format_time(time.time()-progress_time)))
                 
     # take the average
-    algorithm_list_to_y_values = {algorithm_list :
+    algorithm_list_to_y_values = {list_to_string(algorithm_list) :
         [algorithm_to_time_sum[algorithm_list][degree]/num_trials for 
          degree in degrees] for algorithm_list in algorithms}
     
@@ -138,7 +138,7 @@ def compare_interpolations(min_deg, max_deg, num_trials,
             g = [int(x) for x in np.random.randint(0, 2048, degree)]
             for interpolation in interpolations:
                 start_time = time.process_time()
-                multiply(f, g, [algorithm_list], interpolation)
+                multiply(f, g, algorithm_list, interpolation)
                 total_time = time.process_time() - start_time
                 interpolation_to_time_sum[interpolation][degree] += total_time
                 

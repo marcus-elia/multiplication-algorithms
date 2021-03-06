@@ -48,7 +48,7 @@ def plot_compare_decompositions(min_deg, max_deg, num_trials,
     plt.figure(figsize=(16,8))
     for algorithm_list in algorithm_list_to_y_values:
         plt.plot(degrees, algorithm_list_to_y_values[algorithm_list], 
-                 lw=4, label=list_to_string(algorithm_list))
+                 lw=4, label=algorithm_list)
 
     plt.xlabel("Degree", size=19)
     plt.ylabel("Average CPU Time (seconds)", size=19)
@@ -59,7 +59,7 @@ def plot_compare_decompositions(min_deg, max_deg, num_trials,
     else:
         auto_filename = "decomp_plot"
         for algorithm_list in algorithms:
-            auto_filename += "_" + list_to_string(algorithm_list)
+            auto_filename += "_" + algorithm_list
         auto_filename += "_m" + str(min_deg) + "_M" + str(max_deg) + "_t" + str(num_trials)
         auto_filename += ".jpg"
         plt.savefig(auto_filename, bbox_inches='tight')
@@ -157,9 +157,9 @@ def main(argv):
         plot_compare_decompositions(min_degree, max_degree, num_trials, 
                             algorithm_list, interpolation_method,
                             filename=input_filename)
-    elif len(algorithm_list) == 1 and interpolation_method == "":
+    elif interpolation_method == "":
         plot_compare_interpolations(min_degree, max_degree, num_trials, 
-                               algorithm_list[0],
+                               algorithm_list,
                                filename=input_filename)
     else:
         print("Error: some invalid combination of algorithm list and interpolation method")
