@@ -72,8 +72,8 @@ def compare_decompositions(min_deg, max_deg, num_trials,
     
     # a dictionary mapping each algorithm list to a dictionary mapping each
     # degree to the time sum for it
-    algorithm_to_time_sum = {algorithm_list: {degree:0 for degree in degrees} 
-                             for algorithm_list in algorithms}
+    algorithm_to_time_sum = dict((algorithm_list, dict((degree,0) for degree in degrees))
+                             for algorithm_list in algorithms)
     
     # this is the outer loop so all variables will be affected equally by
     # slow outliers
@@ -96,9 +96,9 @@ def compare_decompositions(min_deg, max_deg, num_trials,
     print "[----------]  " + str(format_time(time.time()-progress_time))
                 
     # take the average
-    algorithm_list_to_y_values = {algorithm_list :
-        [algorithm_to_time_sum[algorithm_list][degree]/num_trials for 
-         degree in degrees] for algorithm_list in algorithms}
+    algorithm_list_to_y_values = dict((algorithm_list,
+        [algorithm_to_time_sum[algorithm_list][degree]/num_trials) for 
+         degree in degrees] for algorithm_list in algorithms)
     
     # now plot
     plt.figure(figsize=(16,8))
@@ -133,8 +133,8 @@ def compare_interpolations(min_deg, max_deg, num_trials,
     
     # a dictionary mapping each algorithm list to a dictionary mapping each
     # degree to the time sum for it
-    interpolation_to_time_sum = {interpolation: {degree:0 for degree in degrees} 
-                             for interpolation in interpolations}
+    interpolation_to_time_sum = dict((interpolation, dict((degree, 0) for degree in degrees))
+                             for interpolation in interpolations)
     
     # this is the outer loop so all variables will be affected equally by
     # slow outliers
@@ -157,9 +157,9 @@ def compare_interpolations(min_deg, max_deg, num_trials,
     print "[----------]  " + str(format_time(time.time()-progress_time))
                 
     # take the average
-    interpolation_to_y_values = {interpolation :
-        [interpolation_to_time_sum[interpolation][degree]/num_trials for 
-         degree in degrees] for interpolation in interpolations}
+    interpolation_to_y_values = dict((interpolation,
+        [interpolation_to_time_sum[interpolation][degree]/num_trials) for 
+         degree in degrees] for interpolation in interpolations)
     
     # now plot
     plt.figure(figsize=(16,8))
