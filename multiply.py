@@ -33,7 +33,7 @@ def multiply(f, g, algorithm, interpolation):
     
     # perform the recursive multiplication
     r = {eval_list[i]:multiply(f_eval[i], g_eval[i], next_alg, interpolation)
-            for i in range(len(f_eval))}
+            for i in xrange(len(f_eval))}
     
     # Solve for the coefficients
     if interpolation == "Natural":
@@ -48,11 +48,11 @@ def multiply(f, g, algorithm, interpolation):
     # recombination
     k = int(np.ceil(len(f) / n))
     prod = r_coefs[0][:k]
-    for j in range(1, 2*n-2):
-        prod = prod + [r_coefs[j-1][k+i] + r_coefs[j][i] for i in range(k-1)]
+    for j in xrange(1, 2*n-2):
+        prod = prod + [r_coefs[j-1][k+i] + r_coefs[j][i] for i in xrange(k-1)]
         prod = prod + [r_coefs[j][k-1]]
 
-    prod = prod + [r_coefs[2*n-3][k+i] + r_coefs[2*n-2][i] for i in range(k-1)]
+    prod = prod + [r_coefs[2*n-3][k+i] + r_coefs[2*n-2][i] for i in xrange(k-1)]
 
     prod = prod + r_coefs[2*n-2][k-1:]
 
@@ -68,8 +68,8 @@ def schoolbook(f, g):
     product = [0]*d
     
     # distribute through all possible combinations of coefficients
-    for i in range(len(f)):
-        for j in range(len(g)):
+    for i in xrange(len(f)):
+        for j in xrange(len(g)):
             product[i + j] += f[i]*g[j]
     return product
 
@@ -78,10 +78,10 @@ def split(f, num_blocks):
         If it doesn't divide evenly, we put zeros on the end of the last
         block."""
     blocks = []
-    copy_f = list(f)  # copy f so we don't ruin it!!!!!!!!
+    copy_f = list(f)  # copy f so we don't ruin it
     while len(copy_f) % num_blocks != 0:
         copy_f.append(0)
-    block_length = len(copy_f) // num_blocks
+    block_length = len(copy_f) / num_blocks  # int division in python 2
     index = 0
     while index + block_length < len(copy_f):
         blocks.append(copy_f[index:index+block_length])
@@ -93,7 +93,7 @@ def make_eval_list(n):
     """ In Toom-n, this makes the list of number to plug in
         (0, 1, -1, 2, -2, ..., n-2, -(n-2), n-1, 'infinity')"""
     eval_points = [0]
-    for i in range(1, n - 1):
+    for i in xrange(1, n - 1):
         eval_points.append(i)
         eval_points.append(-i)
     eval_points.append(n-1)
@@ -115,8 +115,8 @@ def evaluate_blocks(blocks, value):
     answer = [0]*len(blocks[0])
     
     coefficient = 1
-    for i in range(len(blocks)):
-        for j in range(len(blocks[0])):
+    for i in xrange(len(blocks)):
+        for j in xrange(len(blocks[0])):
             answer[j] += coefficient*blocks[i][j]
         coefficient *= value    # multiply to make powers of value
     return answer

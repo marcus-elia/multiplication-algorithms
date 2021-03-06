@@ -11,11 +11,11 @@ def test_schoolbook_multiply():
     # the true products
     answers = [[1,4,4], [8, -3, 0, 5], [0,0], [-4, -40, 35, 30, -24]] 
     
-    for i in range(len(fs)):
+    for i in xrange(len(fs)):
         assert schoolbook(fs[i], gs[i]) == answers[i]
 
 def test_algorithms(interpolation_method, min_degree=30, max_degree=150):
-    for poly_length in range(min_degree, max_degree+1):
+    for poly_length in xrange(min_degree, max_degree+1):
         for algorithm_list in [[], [2], [3], [4], [5], [6],
                                [7], [8], [9], [10], [2,2],
                                [5,2], [2,2,2], [1]]:
@@ -32,7 +32,7 @@ def main(argv):
     test_algorithms('Natural', max_degree=80)
     test_algorithms('Efficient', max_degree=80)
     test_algorithms('Matrix', max_degree=80)
-    print("Done testing.")
+    print "Done testing."
 
 
 if __name__ == "__main__":

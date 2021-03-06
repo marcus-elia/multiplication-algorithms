@@ -2,7 +2,7 @@ def solve_for_coefficients_matrix(n, r):
     if n == 2:
         r0 = r[0]
         r2 = r['infinity']
-        r1 = [r[1][i] - r0[i] - r2[i] for i in range(len(r0))]
+        r1 = [r[1][i] - r0[i] - r2[i] for i in xrange(len(r0))]
         return (r0, r1, r2)
     
     if n == 3:
@@ -14,20 +14,20 @@ def solve_for_coefficients_matrix(n, r):
         + 6*r[1][i]
         - r[2][i]
         + 12*r['infinity'][i]
-        ) // 6 for i in range(L)]
+        ) / 6 for i in xrange(L)]
 
         r2 = [(r[-1][i]
         - 2*r[0][i]
         + r[1][i]
         - 2*r['infinity'][i]
-        ) // 2 for i in range(L)]
+        ) / 2 for i in xrange(L)]
 
         r3 = [(-r[-1][i]
         + 3*r[0][i]
         - 3*r[1][i]
         + r[2][i]
         - 12*r['infinity'][i]
-        ) // 6 for i in range(L)]
+        ) / 6 for i in xrange(L)]
 
         r4 = r['infinity']
         return (r0, r1, r2, r3, r4)
@@ -43,7 +43,7 @@ def solve_for_coefficients_matrix(n, r):
         - 30*r[2][i]
         + 4*r[3][i]
         - 1440*r['infinity'][i]
-        ) // 120 for i in range(L)]
+        ) / 120 for i in xrange(L)]
 
         r2 = [(-r[-2][i]
         + 16*r[-1][i]
@@ -51,7 +51,7 @@ def solve_for_coefficients_matrix(n, r):
         + 16*r[1][i]
         - r[2][i]
         + 96*r['infinity'][i]
-        ) // 24 for i in range(L)]
+        ) / 24 for i in xrange(L)]
 
         r3 = [(-5*r[-2][i]
         - 5*r[-1][i]
@@ -60,7 +60,7 @@ def solve_for_coefficients_matrix(n, r):
         + 35*r[2][i]
         - 5*r[3][i]
         + 1800*r['infinity'][i]
-        ) // 120 for i in range(L)]
+        ) / 120 for i in xrange(L)]
 
         r4 = [(r[-2][i]
         - 4*r[-1][i]
@@ -68,7 +68,7 @@ def solve_for_coefficients_matrix(n, r):
         - 4*r[1][i]
         + r[2][i]
         - 120*r['infinity'][i]
-        ) // 24 for i in range(L)]
+        ) / 24 for i in xrange(L)]
 
         r5 = [(-r[-2][i]
         + 5*r[-1][i]
@@ -77,7 +77,7 @@ def solve_for_coefficients_matrix(n, r):
         - 5*r[2][i]
         + r[3][i]
         - 360*r['infinity'][i]
-        ) // 120 for i in range(L)]
+        ) / 120 for i in xrange(L)]
 
         r6 = r['infinity']
         return (r0, r1, r2, r3, r4, r5, r6)
@@ -95,7 +95,7 @@ def solve_for_coefficients_matrix(n, r):
         + 336*r[3][i]
         - 36*r[4][i]
         + 725760*r['infinity'][i]
-        ) // 5040 for i in range(L)]
+        ) / 5040 for i in xrange(L)]
         
         r2 = [(4*r[-3][i]
         - 54*r[-2][i]
@@ -105,7 +105,7 @@ def solve_for_coefficients_matrix(n, r):
         - 54*r[2][i]
         + 4*r[3][i]
         - 25920*r['infinity'][i]
-        ) // 720 for i in range(L)]
+        ) / 720 for i in xrange(L)]
         
         r3 = [(56*r[-3][i]
         - 497*r[-2][i]
@@ -116,7 +116,7 @@ def solve_for_coefficients_matrix(n, r):
         - 448*r[3][i]
         + 49*r[4][i]
         - 987840*r['infinity'][i]
-        ) // 5040 for i in range(L)]
+        ) / 5040 for i in xrange(L)]
         
         r4 = [(-5*r[-3][i]
         + 60*r[-2][i]
@@ -126,7 +126,7 @@ def solve_for_coefficients_matrix(n, r):
         + 60*r[2][i]
         - 5*r[3][i]
         + 35280*r['infinity'][i]
-        ) // 720 for i in range(L)]
+        ) / 720 for i in xrange(L)]
         
         r5 = [(-7*r[-3][i]
         - 14*r[-2][i]
@@ -137,7 +137,7 @@ def solve_for_coefficients_matrix(n, r):
         + 119*r[3][i]
         - 14*r[4][i]
         + 282240*r['infinity'][i]
-        ) // 5040 for i in range(L)]
+        ) / 5040 for i in xrange(L)]
         
         r6 = [(r[-3][i]
         - 6*r[-2][i]
@@ -147,7 +147,7 @@ def solve_for_coefficients_matrix(n, r):
         - 6*r[2][i]
         + r[3][i]
         - 10080*r['infinity'][i]
-        ) // 720 for i in range(L)]
+        ) / 720 for i in xrange(L)]
         
         r7 = [(-r[-3][i]
         + 7*r[-2][i]
@@ -158,7 +158,7 @@ def solve_for_coefficients_matrix(n, r):
         - 7*r[3][i]
         + r[4][i]
         - 20160*r['infinity'][i]
-        ) // 5040 for i in range(L)]
+        ) / 5040 for i in xrange(L)]
         
         r8 = r['infinity']
         return (r0, r1, r2, r3, r4, r5, r6, r7, r8)
@@ -178,7 +178,7 @@ def solve_for_coefficients_matrix(n, r):
         - 6480*r[4][i]
         + 576*r[5][i]
         - 1045094400*r['infinity'][i]
-        ) // 362880 for i in range(L)]
+        ) / 362880 for i in xrange(L)]
         
         r2 = [(-36*r[-4][i]
         + 512*r[-3][i]
@@ -190,7 +190,7 @@ def solve_for_coefficients_matrix(n, r):
         + 512*r[3][i]
         - 36*r[4][i]
         + 23224320*r['infinity'][i]
-        ) // 40320 for i in range(L)]
+        ) / 40320 for i in xrange(L)]
         
         r3 = [(-944*r[-4][i]
         + 10764*r[-3][i]
@@ -203,7 +203,7 @@ def solve_for_coefficients_matrix(n, r):
         + 9144*r[4][i]
         - 820*r[5][i]
         + 1487808000*r['infinity'][i]
-        ) // 362880 for i in range(L)]
+        ) / 362880 for i in xrange(L)]
         
         r4 = [(49*r[-4][i]
         - 672*r[-3][i]
@@ -215,7 +215,7 @@ def solve_for_coefficients_matrix(n, r):
         - 672*r[3][i]
         + 49*r[4][i]
         - 33062400*r['infinity'][i]
-        ) // 40320 for i in range(L)]
+        ) / 40320 for i in xrange(L)]
         
         r5 = [(231*r[-4][i]
         - 2079*r[-3][i]
@@ -228,7 +228,7 @@ def solve_for_coefficients_matrix(n, r):
         - 2961*r[4][i]
         + 273*r[5][i]
         - 495331200*r['infinity'][i]
-        ) // 362880 for i in range(L)]
+        ) / 362880 for i in xrange(L)]
         
         r6 = [(-14*r[-4][i]
         + 168*r[-3][i]
@@ -240,7 +240,7 @@ def solve_for_coefficients_matrix(n, r):
         + 168*r[3][i]
         - 14*r[4][i]
         + 11007360*r['infinity'][i]
-        ) // 40320 for i in range(L)]
+        ) / 40320 for i in xrange(L)]
         
         r7 = [(-6*r[-4][i]
         - 54*r[-3][i]
@@ -253,7 +253,7 @@ def solve_for_coefficients_matrix(n, r):
         + 306*r[4][i]
         - 30*r[5][i]
         + 54432000*r['infinity'][i]
-        ) // 362880 for i in range(L)]
+        ) / 362880 for i in xrange(L)]
         
         r8 = [(r[-4][i]
         - 8*r[-3][i]
@@ -265,7 +265,7 @@ def solve_for_coefficients_matrix(n, r):
         - 8*r[3][i]
         + r[4][i]
         - 1209600*r['infinity'][i]
-        ) // 40320 for i in range(L)]
+        ) / 40320 for i in xrange(L)]
         
         r9 = [(-r[-4][i]
         + 9*r[-3][i]
@@ -278,7 +278,7 @@ def solve_for_coefficients_matrix(n, r):
         - 9*r[4][i]
         + r[5][i]
         - 1814400*r['infinity'][i]
-        ) // 362880 for i in range(L)]
+        ) / 362880 for i in xrange(L)]
         
         r10 = r['infinity']
         return (r0, r1, r2, r3, r4, r5, r6, r7, r8, r9, r10)
@@ -300,7 +300,7 @@ def solve_for_coefficients_matrix(n, r):
         + 190080*r[5][i]
         - 14400*r[6][i]
         + 3448811520000*r['infinity'][i]
-        ) // 39916800 for i in range(L)]
+        ) / 39916800 for i in xrange(L)]
         
         r2 = [(576*r[-5][i]
         - 9000*r[-4][i]
@@ -314,7 +314,7 @@ def solve_for_coefficients_matrix(n, r):
         - 9000*r[4][i]
         + 576*r[5][i]
         - 52254720000*r['infinity'][i]
-        ) // 3628800 for i in range(L)]
+        ) / 3628800 for i in xrange(L)]
         
         r3 = [(24024*r[-5][i]
         - 323004*r[-4][i]
@@ -329,7 +329,7 @@ def solve_for_coefficients_matrix(n, r):
         - 276936*r[5][i]
         + 21076*r[6][i]
         - 5047718860800*r['infinity'][i]
-        ) // 39916800 for i in range(L)]
+        ) / 39916800 for i in xrange(L)]
         
         r4 = [(-820*r[-5][i]
         + 12610*r[-4][i]
@@ -343,7 +343,7 @@ def solve_for_coefficients_matrix(n, r):
         + 12610*r[4][i]
         - 820*r[5][i]
         + 76480588800*r['infinity'][i]
-        ) // 3628800 for i in range(L)]
+        ) / 3628800 for i in xrange(L)]
         
         r5 = [(-7370*r[-5][i]
         + 91465*r[-4][i]
@@ -358,7 +358,7 @@ def solve_for_coefficients_matrix(n, r):
         + 99110*r[5][i]
         - 7645*r[6][i]
         + 1830983616000*r['infinity'][i]
-        ) // 39916800 for i in range(L)]
+        ) / 39916800 for i in xrange(L)]
         
         r6 = [(273*r[-5][i]
         - 3990*r[-4][i]
@@ -372,7 +372,7 @@ def solve_for_coefficients_matrix(n, r):
         - 3990*r[4][i]
         + 273*r[5][i]
         - 27742176000*r['infinity'][i]
-        ) // 3628800 for i in range(L)]
+        ) / 3628800 for i in xrange(L)]
         
         r7 = [(627*r[-5][i]
         - 5907*r[-4][i]
@@ -387,7 +387,7 @@ def solve_for_coefficients_matrix(n, r):
         - 12903*r[5][i]
         + 1023*r[6][i]
         - 245009318400*r['infinity'][i]
-        ) // 39916800 for i in range(L)]
+        ) / 39916800 for i in xrange(L)]
         
         r8 = [(-30*r[-5][i]
         + 390*r[-4][i]
@@ -401,7 +401,7 @@ def solve_for_coefficients_matrix(n, r):
         + 390*r[4][i]
         - 30*r[5][i]
         + 3712262400*r['infinity'][i]
-        ) // 3628800 for i in range(L)]
+        ) / 3628800 for i in xrange(L)]
         
         r9 = [(- 165*r[-4][i]
         + 1540*r[-3][i]
@@ -415,7 +415,7 @@ def solve_for_coefficients_matrix(n, r):
         + 660*r[5][i]
         - 55*r[6][i]
         + 13172544000*r['infinity'][i]
-        ) // 39916800 for i in range(L)]
+        ) / 39916800 for i in xrange(L)]
         
         r10 = [(r[-5][i]
         - 10*r[-4][i]
@@ -429,7 +429,7 @@ def solve_for_coefficients_matrix(n, r):
         - 10*r[4][i]
         + r[5][i]
         - 199584000*r['infinity'][i]
-        ) // 3628800 for i in range(L)]
+        ) / 3628800 for i in xrange(L)]
         
         r11 = [(-r[-5][i]
         + 11*r[-4][i]
@@ -444,7 +444,7 @@ def solve_for_coefficients_matrix(n, r):
         - 11*r[5][i]
         + r[6][i]
         - 239500800*r['infinity'][i]
-        ) // 39916800 for i in range(L)]
+        ) / 39916800 for i in xrange(L)]
         
         r12 = r['infinity']
         return (r0, r1, r2, r3, r4, r5, r6, r7, r8, r9, r10, r11, r12)
@@ -468,7 +468,7 @@ def solve_for_coefficients_matrix(n, r):
         - 7862400*r[6][i]
         + 518400*r[7][i]
         - 22596613079040000*r['infinity'][i]
-        ) // 6227020800 for i in range(L)]
+        ) / 6227020800 for i in xrange(L)]
         
         r2 = [(-14400*r[-6][i]
         + 248832*r[-5][i]
@@ -484,7 +484,7 @@ def solve_for_coefficients_matrix(n, r):
         + 248832*r[5][i]
         - 14400*r[6][i]
         + 248314429440000*r['infinity'][i]
-        ) // 479001600 for i in range(L)]
+        ) / 479001600 for i in xrange(L)]
         
         r3 = [(-870792*r[-6][i]
         + 13424112*r[-5][i]
@@ -501,7 +501,7 @@ def solve_for_coefficients_matrix(n, r):
         + 11694696*r[6][i]
         - 773136*r[7][i]
         + 33700337672601600*r['infinity'][i]
-        ) // 6227020800 for i in range(L)]
+        ) / 6227020800 for i in xrange(L)]
         
         r4 = [(21076*r[-6][i]
         - 361152*r[-5][i]
@@ -517,7 +517,7 @@ def solve_for_coefficients_matrix(n, r):
         - 361152*r[5][i]
         + 21076*r[6][i]
         - 370333381017600*r['infinity'][i]
-        ) // 479001600 for i in range(L)]
+        ) / 479001600 for i in xrange(L)]
         
         r5 = [(300014*r[-6][i]
         - 4453592*r[-5][i]
@@ -534,7 +534,7 @@ def solve_for_coefficients_matrix(n, r):
         - 4448158*r[6][i]
         + 296296*r[7][i]
         - 12915289484697600*r['infinity'][i]
-        ) // 6227020800 for i in range(L)]
+        ) / 6227020800 for i in xrange(L)]
         
         r6 = [(-7645*r[-6][i]
         + 127776*r[-5][i]
@@ -550,7 +550,7 @@ def solve_for_coefficients_matrix(n, r):
         + 127776*r[5][i]
         - 7645*r[6][i]
         + 141926258073600*r['infinity'][i]
-        ) // 479001600 for i in range(L)]
+        ) / 479001600 for i in xrange(L)]
         
         r7 = [(-35321*r[-6][i]
         + 477191*r[-5][i]
@@ -567,7 +567,7 @@ def solve_for_coefficients_matrix(n, r):
         + 657943*r[6][i]
         - 44473*r[7][i]
         + 1938540072268800*r['infinity'][i]
-        ) // 6227020800 for i in range(L)]
+        ) / 6227020800 for i in xrange(L)]
         
         r8 = [(1023*r[-6][i]
         - 16236*r[-5][i]
@@ -583,7 +583,7 @@ def solve_for_coefficients_matrix(n, r):
         - 16236*r[5][i]
         + 1023*r[6][i]
         - 21302638156800*r['infinity'][i]
-        ) // 479001600 for i in range(L)]
+        ) / 479001600 for i in xrange(L)]
         
         r9 = [(1287*r[-6][i]
         - 12441*r[-5][i]
@@ -600,7 +600,7 @@ def solve_for_coefficients_matrix(n, r):
         - 43329*r[6][i]
         + 3003*r[7][i]
         - 130898204236800*r['infinity'][i]
-        ) // 6227020800 for i in range(L)]
+        ) / 6227020800 for i in xrange(L)]
         
         r10 = [(-55*r[-6][i]
         + 792*r[-5][i]
@@ -616,7 +616,7 @@ def solve_for_coefficients_matrix(n, r):
         + 792*r[5][i]
         - 55*r[6][i]
         + 1438441804800*r['infinity'][i]
-        ) // 479001600 for i in range(L)]
+        ) / 479001600 for i in xrange(L)]
         
         r11 = [(13*r[-6][i]
         - 403*r[-5][i]
@@ -633,7 +633,7 @@ def solve_for_coefficients_matrix(n, r):
         + 1261*r[6][i]
         - 91*r[7][i]
         + 3966612249600*r['infinity'][i]
-        ) // 6227020800 for i in range(L)]
+        ) / 6227020800 for i in xrange(L)]
         
         r12 = [(r[-6][i]
         - 12*r[-5][i]
@@ -649,7 +649,7 @@ def solve_for_coefficients_matrix(n, r):
         - 12*r[5][i]
         + r[6][i]
         - 43589145600*r['infinity'][i]
-        ) // 479001600 for i in range(L)]
+        ) / 479001600 for i in xrange(L)]
         
         r13 = [(-r[-6][i]
         + 13*r[-5][i]
@@ -666,7 +666,7 @@ def solve_for_coefficients_matrix(n, r):
         - 13*r[6][i]
         + r[7][i]
         - 43589145600*r['infinity'][i]
-        ) // 6227020800 for i in range(L)]
+        ) / 6227020800 for i in xrange(L)]
         
         r14 = r['infinity']
         return (r0, r1, r2, r3, r4, r5, r6, r7, r8, r9, r10, r11, r12, r13, r14) 
@@ -692,7 +692,7 @@ def solve_for_coefficients_matrix(n, r):
         + 435456000*r[7][i]
         - 25401600*r[8][i]
         + 265736169809510400000*r['infinity'][i]
-        ) // 1307674368000 for i in range(L)]
+        ) / 1307674368000 for i in xrange(L)]
         
         r2 = [(518400*r[-7][i]
         - 9878400*r[-6][i]
@@ -710,7 +710,7 @@ def solve_for_coefficients_matrix(n, r):
         - 9878400*r[6][i]
         + 518400*r[7][i]
         - 2214468081745920000*r['infinity'][i]
-        ) // 87178291200 for i in range(L)]
+        ) / 87178291200 for i in xrange(L)]
         
         r3 = [(42777216*r[-7][i]
         - 743345280*r[-6][i]
@@ -729,7 +729,7 @@ def solve_for_coefficients_matrix(n, r):
         - 657210240*r[7][i]
         + 38402064*r[8][i]
         - 401739158168764416000*r['infinity'][i]
-        ) // 1307674368000 for i in range(L)]
+        ) / 1307674368000 for i in xrange(L)]
         
         r4 = [(-773136*r[-7][i]
         + 14659736*r[-6][i]
@@ -747,7 +747,7 @@ def solve_for_coefficients_matrix(n, r):
         + 14659736*r[6][i]
         - 773136*r[7][i]
         + 3347826318073036800*r['infinity'][i]
-        ) // 87178291200 for i in range(L)]
+        ) / 87178291200 for i in xrange(L)]
         
         r5 = [(-15819440*r[-7][i]
         + 269183460*r[-6][i]
@@ -766,7 +766,7 @@ def solve_for_coefficients_matrix(n, r):
         + 260485680*r[7][i]
         - 15291640*r[8][i]
         + 159971885381468160000*r['infinity'][i]
-        ) // 1307674368000 for i in range(L)]
+        ) / 1307674368000 for i in xrange(L)]
         
         r6 = [(296296*r[-7][i]
         - 5539534*r[-6][i]
@@ -784,7 +784,7 @@ def solve_for_coefficients_matrix(n, r):
         - 5539534*r[6][i]
         + 296296*r[7][i]
         - 1333099044845568000*r['infinity'][i]
-        ) // 87178291200 for i in range(L)]
+        ) / 87178291200 for i in xrange(L)]
         
         r7 = [(2194192*r[-7][i]
         - 35660625*r[-6][i]
@@ -803,7 +803,7 @@ def solve_for_coefficients_matrix(n, r):
         - 41801760*r[7][i]
         + 2475473*r[8][i]
         - 25896900726208512000*r['infinity'][i]
-        ) // 1307674368000 for i in range(L)]
+        ) / 1307674368000 for i in xrange(L)]
         
         r8 = [(-44473*r[-7][i]
         + 808808*r[-6][i]
@@ -821,7 +821,7 @@ def solve_for_coefficients_matrix(n, r):
         + 808808*r[6][i]
         - 44473*r[7][i]
         + 215807506051737600*r['infinity'][i]
-        ) // 87178291200 for i in range(L)]
+        ) / 87178291200 for i in xrange(L)]
         
         r9 = [(-123695*r[-7][i]
         + 1810380*r[-6][i]
@@ -840,7 +840,7 @@ def solve_for_coefficients_matrix(n, r):
         + 3189615*r[7][i]
         - 191620*r[8][i]
         + 2004612499169280000*r['infinity'][i]
-        ) // 1307674368000 for i in range(L)]
+        ) / 1307674368000 for i in xrange(L)]
         
         r10 = [(3003*r[-7][i]
         - 52052*r[-6][i]
@@ -858,7 +858,7 @@ def solve_for_coefficients_matrix(n, r):
         - 52052*r[6][i]
         + 3003*r[7][i]
         - 16705104159744000*r['infinity'][i]
-        ) // 87178291200 for i in range(L)]
+        ) / 87178291200 for i in xrange(L)]
         
         r11 = [(2093*r[-7][i]
         - 19110*r[-6][i]
@@ -877,7 +877,7 @@ def solve_for_coefficients_matrix(n, r):
         - 121485*r[7][i]
         + 7462*r[8][i]
         - 78062929072128000*r['infinity'][i]
-        ) // 1307674368000 for i in range(L)]
+        ) / 1307674368000 for i in xrange(L)]
         
         r12 = [(-91*r[-7][i]
         + 1456*r[-6][i]
@@ -895,7 +895,7 @@ def solve_for_coefficients_matrix(n, r):
         + 1456*r[6][i]
         - 91*r[7][i]
         + 650524408934400*r['infinity'][i]
-        ) // 87178291200 for i in range(L)]
+        ) / 87178291200 for i in xrange(L)]
         
         r13 = [(35*r[-7][i]
         - 840*r[-6][i]
@@ -914,7 +914,7 @@ def solve_for_coefficients_matrix(n, r):
         + 2205*r[7][i]
         - 140*r[8][i]
         + 1464595292160000*r['infinity'][i]
-        ) // 1307674368000 for i in range(L)]
+        ) / 1307674368000 for i in xrange(L)]
         
         r14 = [(r[-7][i]
         - 14*r[-6][i]
@@ -932,7 +932,7 @@ def solve_for_coefficients_matrix(n, r):
         - 14*r[6][i]
         + r[7][i]
         - 12204960768000*r['infinity'][i]
-        ) // 87178291200 for i in range(L)]
+        ) / 87178291200 for i in xrange(L)]
         
         r15 = [(-r[-7][i]
         + 15*r[-6][i]
@@ -951,7 +951,7 @@ def solve_for_coefficients_matrix(n, r):
         - 15*r[7][i]
         + r[8][i]
         - 10461394944000*r['infinity'][i]
-        ) // 1307674368000 for i in range(L)]
+        ) / 1307674368000 for i in xrange(L)]
         
         r16 = r['infinity']
         return (r0, r1, r2, r3, r4, r5, r6, r7, r8, r9, r10, r11, r12, r13, r14, r15, r16)
@@ -979,7 +979,7 @@ def solve_for_coefficients_matrix(n, r):
         - 31091558400*r[8][i]
         + 1625702400*r[9][i]
         - 5204177149549451673600000*r['infinity'][i]
-        ) // 355687428096000 for i in range(L)]
+        ) / 355687428096000 for i in xrange(L)]
         
         r2 = [(-25401600*r[-8][i]
         + 530841600*r[-7][i]
@@ -999,7 +999,7 @@ def solve_for_coefficients_matrix(n, r):
         + 530841600*r[7][i]
         - 25401600*r[8][i]
         + 34014229735617331200000*r['infinity'][i]
-        ) // 20922789888000 for i in range(L)]
+        ) / 20922789888000 for i in xrange(L)]
         
         r3 = [(-2739547008*r[-8][i]
         + 52985021184*r[-7][i]
@@ -1020,7 +1020,7 @@ def solve_for_coefficients_matrix(n, r):
         + 47435953536*r[8][i]
         - 2483133696*r[9][i]
         + 7948974941538792505344000*r['infinity'][i]
-        ) // 355687428096000 for i in range(L)]
+        ) / 355687428096000 for i in xrange(L)]
         
         r4 = [(38402064*r[-8][i]
         - 799985664*r[-7][i]
@@ -1040,7 +1040,7 @@ def solve_for_coefficients_matrix(n, r):
         - 799985664*r[7][i]
         + 38402064*r[8][i]
         - 51954084585220866048000*r['infinity'][i]
-        ) // 20922789888000 for i in range(L)]
+        ) / 20922789888000 for i in xrange(L)]
         
         r5 = [(1062596016*r[-8][i]
         - 20287356912*r[-7][i]
@@ -1061,7 +1061,7 @@ def solve_for_coefficients_matrix(n, r):
         - 19369802448*r[8][i]
         + 1017067024*r[9][i]
         - 3255821585710314356736000*r['infinity'][i]
-        ) // 355687428096000 for i in range(L)]
+        ) / 355687428096000 for i in xrange(L)]
         
         r6 = [(-15291640*r[-8][i]
         + 315777280*r[-7][i]
@@ -1081,7 +1081,7 @@ def solve_for_coefficients_matrix(n, r):
         + 315777280*r[7][i]
         - 15291640*r[8][i]
         + 21279879645165453312000*r['infinity'][i]
-        ) // 20922789888000 for i in range(L)]
+        ) / 20922789888000 for i in xrange(L)]
         
         r7 = [(-162942416*r[-8][i]
         + 3030176968*r[-7][i]
@@ -1102,7 +1102,7 @@ def solve_for_coefficients_matrix(n, r):
         + 3289936832*r[8][i]
         - 173721912*r[9][i]
         + 556116300748796755968000*r['infinity'][i]
-        ) // 355687428096000 for i in range(L)]
+        ) / 355687428096000 for i in xrange(L)]
         
         r8 = [(2475473*r[-8][i]
         - 50281088*r[-7][i]
@@ -1122,7 +1122,7 @@ def solve_for_coefficients_matrix(n, r):
         - 50281088*r[7][i]
         + 2475473*r[8][i]
         - 3634747063717625856000*r['infinity'][i]
-        ) // 20922789888000 for i in range(L)]
+        ) / 20922789888000 for i in xrange(L)]
         
         r9 = [(11321167*r[-8][i]
         - 200044559*r[-7][i]
@@ -1143,7 +1143,7 @@ def solve_for_coefficients_matrix(n, r):
         - 276625921*r[8][i]
         + 14739153*r[9][i]
         - 47182782805950984192000*r['infinity'][i]
-        ) // 355687428096000 for i in range(L)]
+        ) / 355687428096000 for i in xrange(L)]
         
         r10 = [(-191620*r[-8][i]
         + 3786640*r[-7][i]
@@ -1163,7 +1163,7 @@ def solve_for_coefficients_matrix(n, r):
         + 3786640*r[7][i]
         - 191620*r[8][i]
         + 308384201346084864000*r['infinity'][i]
-        ) // 20922789888000 for i in range(L)]
+        ) / 20922789888000 for i in xrange(L)]
         
         r11 = [(-345644*r[-8][i]
         + 5430412*r[-7][i]
@@ -1184,7 +1184,7 @@ def solve_for_coefficients_matrix(n, r):
         + 12391028*r[8][i]
         - 669188*r[9][i]
         + 2142195827694354432000*r['infinity'][i]
-        ) // 355687428096000 for i in range(L)]
+        ) / 355687428096000 for i in xrange(L)]
         
         r12 = [(7462*r[-8][i]
         - 141232*r[-7][i]
@@ -1204,7 +1204,7 @@ def solve_for_coefficients_matrix(n, r):
         - 141232*r[7][i]
         + 7462*r[8][i]
         - 14001279919570944000*r['infinity'][i]
-        ) // 20922789888000 for i in range(L)]
+        ) / 20922789888000 for i in xrange(L)]
         
         r13 = [(2618*r[-8][i]
         - 15946*r[-7][i]
@@ -1225,7 +1225,7 @@ def solve_for_coefficients_matrix(n, r):
         - 298214*r[8][i]
         + 16422*r[9][i]
         - 52569890497732608000*r['infinity'][i]
-        ) // 355687428096000 for i in range(L)]
+        ) / 355687428096000 for i in xrange(L)]
         
         r14 = [(-140*r[-8][i]
         + 2480*r[-7][i]
@@ -1245,7 +1245,7 @@ def solve_for_coefficients_matrix(n, r):
         + 2480*r[7][i]
         - 140*r[8][i]
         + 343594055540736000*r['infinity'][i]
-        ) // 20922789888000 for i in range(L)]
+        ) / 20922789888000 for i in xrange(L)]
         
         r15 = [(68*r[-8][i]
         - 1564*r[-7][i]
@@ -1266,7 +1266,7 @@ def solve_for_coefficients_matrix(n, r):
         + 3604*r[8][i]
         - 204*r[9][i]
         + 653042117984256000*r['infinity'][i]
-        ) // 355687428096000 for i in range(L)]
+        ) / 355687428096000 for i in xrange(L)]
         
         r16 = [(r[-8][i]
         - 16*r[-7][i]
@@ -1286,7 +1286,7 @@ def solve_for_coefficients_matrix(n, r):
         - 16*r[7][i]
         + r[8][i]
         - 4268249137152000*r['infinity'][i]
-        ) // 20922789888000 for i in range(L)]
+        ) / 20922789888000 for i in xrange(L)]
         
         r17 = [(-r[-8][i]
         + 17*r[-7][i]
@@ -1307,7 +1307,7 @@ def solve_for_coefficients_matrix(n, r):
         - 17*r[8][i]
         + r[9][i]
         - 3201186852864000*r['infinity'][i]
-        ) // 355687428096000 for i in range(L)]
+        ) / 355687428096000 for i in xrange(L)]
         
         r18 = r['infinity']
         return (r0, r1, r2, r3, r4, r5, r6, r7, r8, r9, r10, r11, r12, r13, r14, r15, r16, r17, r18)

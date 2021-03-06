@@ -68,7 +68,7 @@ def compare_decompositions(min_deg, max_deg, num_trials,
     algorithms = [tuple(algorithm_list) for algorithm_list in algorithms]
     
     # the degrees (x-values)
-    degrees = range(min_deg, max_deg+1)
+    degrees = xrange(min_deg, max_deg+1)
     
     # a dictionary mapping each algorithm list to a dictionary mapping each
     # degree to the time sum for it
@@ -78,7 +78,7 @@ def compare_decompositions(min_deg, max_deg, num_trials,
     # this is the outer loop so all variables will be affected equally by
     # slow outliers
     progress_time = time.time() # for the progress bar
-    for _ in range(num_trials):
+    for _ in xrange(num_trials):
         for degree in degrees:
             f = [int(x) for x in np.random.randint(0, 2048, degree)]
             g = [int(x) for x in np.random.randint(0, 2048, degree)]
@@ -92,8 +92,8 @@ def compare_decompositions(min_deg, max_deg, num_trials,
         if _ % (num_trials//10) == 0:
             x = _ // (num_trials//10)
             this_time = format_time(time.time()-progress_time)
-            print("[" + "-"*x + " "*(10-x) + "]  " + str(this_time))
-    print("[----------]  " + str(format_time(time.time()-progress_time)))
+            print "[" + "-"*x + " "*(10-x) + "]  " + str(this_time)
+    print "[----------]  " + str(format_time(time.time()-progress_time))
                 
     # take the average
     algorithm_list_to_y_values = {algorithm_list :
@@ -129,7 +129,7 @@ def compare_interpolations(min_deg, max_deg, num_trials,
     interpolations = ("Natural", "Efficient", "Matrix")
     
     # the degrees (x-values)
-    degrees = range(min_deg, max_deg+1)
+    degrees = xrange(min_deg, max_deg+1)
     
     # a dictionary mapping each algorithm list to a dictionary mapping each
     # degree to the time sum for it
@@ -139,7 +139,7 @@ def compare_interpolations(min_deg, max_deg, num_trials,
     # this is the outer loop so all variables will be affected equally by
     # slow outliers
     progress_time = time.time() # for the progress bar
-    for _ in range(num_trials):
+    for _ in xrange(num_trials):
         for degree in degrees:
             f = [int(x) for x in np.random.randint(0, 2048, degree)]
             g = [int(x) for x in np.random.randint(0, 2048, degree)]
@@ -153,8 +153,8 @@ def compare_interpolations(min_deg, max_deg, num_trials,
         if _ % (num_trials//10) == 0:
             x = _ // (num_trials//10)
             this_time = format_time(time.time()-progress_time)
-            print("[" + "-"*x + " "*(10-x) + "]  " + str(this_time))
-    print("[----------]  " + str(format_time(time.time()-progress_time)))
+            print "[" + "-"*x + " "*(10-x) + "]  " + str(this_time)
+    print "[----------]  " + str(format_time(time.time()-progress_time))
                 
     # take the average
     interpolation_to_y_values = {interpolation :
@@ -194,11 +194,11 @@ def main(argv):
     try:
         opts, args = getopt.getopt(argv,"hm:M:t:a:i:f:",["help="])
     except getopt.GetoptError:
-        print(usage)
+        print usage 
         sys.exit(2)
     for opt, arg in opts:
         if opt == '-h' or opt == "--help":
-            print(usage)
+            print usage
             sys.exit()
         elif opt == '-m':
             min_degree = int(arg)
@@ -214,29 +214,29 @@ def main(argv):
             input_filename = arg
 
     if min_degree <= 0:
-        print("Error: minimum degree not specified or invalid")
-        print(usage)
+        print "Error: minimum degree not specified or invalid"
+        print usage
         sys.exit(1)
     if max_degree <= min_degree:
-        print("Error: max degree not specified or invalid")
-        print(usage)
+        print "Error: max degree not specified or invalid"
+        print usage
         sys.exit(1)
     if num_trials <= 0:
-        print("Error: num trials not specified or invalid")
-        print(usage)
+        print "Error: num trials not specified or invalid"
+        print usage
         sys.exit(1)
     if algorithm_list == []:
-        print("Error: algorithm list cannot be empty")
-        print(usage)
+        print "Error: algorithm list cannot be empty"
+        print usage
         sys.exit(1)
     if len(algorithm_list) > 1 and interpolation_method == "":
-        print("Error: cannot compare interpolation methods with multiple decompositions")
-        print(usage)
+        print "Error: cannot compare interpolation methods with multiple decompositions"
+        print usage
         sys.exit(1)
     if interpolation_method != "" and not interpolation_method in ("Natural", "Efficient", "Matrix"):
-        print(interpolation_method)
-        print("Error: invalid interpolation method")
-        print(usage)
+        print interpolation_method
+        print "Error: invalid interpolation method"
+        print usage
         sys.exit(1)
     
     if len(algorithm_list) >= 1 and interpolation_method != "":
@@ -248,8 +248,8 @@ def main(argv):
                                algorithm_list[0],
                                filename=input_filename)
     else:
-        print("Error: some invalid combination of algorithm list and interpolation method")
-        print(usage)
+        print "Error: some invalid combination of algorithm list and interpolation method"
+        print usage
         sys.exit(1)
 
 
