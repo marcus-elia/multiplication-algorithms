@@ -97,8 +97,8 @@ def compare_decompositions(min_deg, max_deg, num_trials,
                 
     # take the average
     algorithm_list_to_y_values = dict((algorithm_list,
-        [algorithm_to_time_sum[algorithm_list][degree]/num_trials) for 
-         degree in degrees] for algorithm_list in algorithms)
+        [algorithm_to_time_sum[algorithm_list][degree]/num_trials for 
+         degree in degrees]) for algorithm_list in algorithms)
     
     # now plot
     plt.figure(figsize=(16,8))
@@ -158,8 +158,8 @@ def compare_interpolations(min_deg, max_deg, num_trials,
                 
     # take the average
     interpolation_to_y_values = dict((interpolation,
-        [interpolation_to_time_sum[interpolation][degree]/num_trials) for 
-         degree in degrees] for interpolation in interpolations)
+        [interpolation_to_time_sum[interpolation][degree]/num_trials for 
+         degree in degrees]) for interpolation in interpolations)
     
     # now plot
     plt.figure(figsize=(16,8))
