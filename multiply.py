@@ -32,8 +32,8 @@ def multiply(f, g, algorithm, interpolation):
     g_eval = evaluate_blocks_list(gblocks, eval_list)
     
     # perform the recursive multiplication
-    r = {eval_list[i]:multiply(f_eval[i], g_eval[i], next_alg, interpolation)
-            for i in xrange(len(f_eval))}
+    r = dict((eval_list[i], multiply(f_eval[i], g_eval[i], next_alg, interpolation))
+            for i in xrange(len(f_eval)))
     
     # Solve for the coefficients
     if interpolation == "Natural":
