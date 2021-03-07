@@ -34,7 +34,7 @@ def make_decomp_plot_from_data(metadata, data):
     plt.figure(figsize=(16,8))
     for algorithm_list in algorithm_list_to_y_values:
         plt.plot(degrees, algorithm_list_to_y_values[algorithm_list], 
-                 lw=4, label=list_to_string(algorithm_list))
+                 lw=4, label=algorithm_list)
 
     plt.xlabel("Degree", size=19)
     plt.ylabel("Average CPU Time (seconds)", size=19)
