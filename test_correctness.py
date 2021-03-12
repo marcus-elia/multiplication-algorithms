@@ -19,7 +19,7 @@ def test_algorithms(interpolation_method, min_degree=30, max_degree=150):
         for algorithm_list in [[], [2], [3], [4], [5], [6],
                                [7], [8], [9], [10], [2,2],
                                [5,2], [2,2,2], [1], [11], [12], [13],
-                               [14], [15]]:
+                               [14], [15],[30]]:
             f = [int(x) for x in np.random.randint(-100, 100,
                                                     size=poly_length)]
             g = [int(x) for x in np.random.randint(-100, 100, 

@@ -355,6 +355,6 @@ def write_natural(filename, n):
     return
         
 if __name__ == "__main__":
-   write_to_file("auto_generated_efficient_formulas.py", "Efficient", 15)
+   write_to_file("auto_generated_natural_formulas_30.py", "Natural", 30)
     
     
