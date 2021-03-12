@@ -1,8 +1,12 @@
 # -*- coding: utf-8 -*-
 import numpy as np
-from natural_interpolation import solve_for_coefficients_natural
-from efficient_interpolation import solve_for_coefficients_efficient
-from matrix_interpolation import solve_for_coefficients_matrix
+#from natural_interpolation import solve_for_coefficients_natural
+#from efficient_interpolation import solve_for_coefficients_efficient
+#from matrix_interpolation import solve_for_coefficients_matrix
+from auto_generated_efficient_formulas_30 import *
+from auto_generated_natural_formulas_30 import *
+from auto_generated_matrix_formulas_30 import *
+
 
 def multiply(f, g, algorithm, interpolation):
     """ This multiplies f and g. algorithm_list specifies how.
